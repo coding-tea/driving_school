@@ -182,6 +182,14 @@ return [
         'french' => 'french',
     ],
 
+    // modes
+    'mode' => [
+        'text' => 'mode',
+        'light' => 'light',
+        'system' => 'system',
+        'dark' => 'dark',
+    ],
+
     "payment" => [
         'caisse' => 'Cash',
         'cheque' => 'Cheque',
