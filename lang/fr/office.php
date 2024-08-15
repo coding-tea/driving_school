@@ -4,7 +4,7 @@ return [
 
     // pages
     'page_index' => [
-        'page_index' => 'Creer un Office',
+        'page_title' => 'Creer un Office',
         'page_dt_action_delete_all' => 'Supprimer les Offices sélectionnées',
         'page_th_item' => 'Office',
     ],
@@ -14,8 +14,8 @@ return [
     ],
 
     'page_edit' => [
-        'page_edit' => 'Modifier le Office',
-        'page_edit_with_item' => 'Liste des Office',
+        'page_title' => 'Liste des Office',
+        'page_title_with_item' => 'Modifier le Office',
     ],
 
     // labels
