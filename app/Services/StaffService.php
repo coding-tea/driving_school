@@ -4,7 +4,9 @@ namespace App\Services;
 
 use App\DTO\StaffDto as Dto;
 use App\Models\Staff;
+use App\Models\UserManagement\User;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Hash;
 
 class StaffService extends Service
 {
@@ -23,6 +25,11 @@ class StaffService extends Service
 
     public function create(Dto $dto)
     {
+        $user = User::query()->create([
+            'login' => $dto->name,
+            'password' => Hash::make($dto->name),
+        ]);
+        
         $data = $this->query()->create([
             'name' => $dto->name,
             'role' => $dto->role,
