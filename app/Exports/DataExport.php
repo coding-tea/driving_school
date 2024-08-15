@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 class DataExport implements FromView
 {
 
+
     public function __construct(public array $heads , public $query)
     {
     }
@@ -29,5 +30,6 @@ class DataExport implements FromView
         Excel::store(new self($heads , $query),"export/$filename"); // Store the Excel file using laravel-excel 'store' method with DataExport, $heads, and $query
         return route('download.files',$filename); // Generating the URL path for downloading the file
     }
+
 
 }

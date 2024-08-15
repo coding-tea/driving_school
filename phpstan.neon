@@ -1,0 +1,15 @@
+includes:
+       - vendor/larastan/larastan/extension.neon
+parameters:
+    paths:
+        - app/EditConsult
+    level: 9
+    ignoreErrors:
+                - '#PHPDoc tag @var#'
+                - '#Call to an undefined method#'
+                - '#Call to an undefined static method#'
+                - '#Method @ return type has no value type specified in iterable type array.#'
+    excludePaths:
+
+
+

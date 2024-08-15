@@ -1,0 +1,63 @@
+[
+
+    {
+        "id": "1",
+        "region": "Tanger-Tétouan-Al Hoceïma",
+        "description": "Cette région, située dans le nord du Maroc, est caractérisée par sa diversité géographique, allant des montagnes du Rif aux côtes méditerranéennes. Tanger, une ville portuaire importante, est le point de rencontre entre l'Europe et l'Afrique, ajoutant une dimension internationale à la région."
+    },
+    {
+        "id": "2",
+        "region": "l'Oriental",
+        "description": "L'Oriental est une région riche en ressources naturelles, avec des paysages allant des montagnes de l'Atlas aux vastes étendues désertiques. Elle abrite des villes historiques telles que Oujda et Berkane, et est connue pour son artisanat traditionnel et sa culture berbère."
+    },
+    {
+        "id": "3",
+        "region": "Fès-Meknès",
+        "description": "Au cœur du Maroc, la région de Fès-Meknès est réputée pour sa ville impériale, Fès, qui regorge de médinas anciennes, de mosquées et de palais. Meknès, une autre ville historique, ajoute à la richesse culturelle et architecturale de cette région."
+    },
+    {
+        "id": "4",
+        "region": "Rabat-Salé-Kénitra",
+        "description": "Cette région abrite la capitale du Maroc, Rabat, avec son mélange unique de modernité et de patrimoine historique. Salé, située sur la côte atlantique, offre des plages pittoresques, tandis que Kénitra est connue pour son agriculture prospère."
+    },
+    {
+        "id": "5",
+        "region": "Béni Mellal-Khénifra",
+        "description": "Béni Mellal-Khénifra est une région montagneuse au centre du Maroc, caractérisée par des vallées fertiles et des plateaux. Elle est un centre agricole important, avec des paysages pittoresques et des traditions berbères bien préservées."
+    },
+    {
+        "id": "6",
+        "region": "Casablanca-Settat",
+        "description": "Casablanca-Settat est la région économique et industrielle majeure du Maroc, abritant la ville cosmopolite de Casablanca. Cette région dynamique est le centre financier du pays, combinant modernité et traditions marocaines."
+    },
+    {
+        "id": "7",
+        "region": "Marrakech-Safi",
+        "description": "Marrakech-Safi est célèbre pour la ville impériale de Marrakech, avec ses souks animés, ses jardins luxuriants et son patrimoine historique. La région comprend également des zones côtières attrayantes le long de l'océan Atlantique."
+    },
+    {
+        "id": "8",
+        "region": "Drâa-Tafilalet",
+        "description": "Située dans le sud-est du Maroc, Drâa-Tafilalet est une région désertique caractérisée par le désert du Sahara. Les oasis verdoyantes, les kasbahs anciennes et les caravanes commerciales traditionnelles font partie intégrante de son paysage culturel."
+    },
+    {
+        "id": "9",
+        "region": "Souss-Massa",
+        "description": "La région de Souss-Massa est réputée pour ses plages spectaculaires, son climat agréable et son agriculture prospère. Agadir, une ville côtière, est un centre touristique majeur, offrant une combinaison de modernité et de traditions berbères."
+    },
+    {
+        "id": "10",
+        "region": "Guelmim-Oued Noun",
+        "description": "S'étendant du littoral atlantique au Sahara, Guelmim-Oued Noun est une région diversifiée. Elle abrite des communautés nomades, des plages sauvages et des paysages désertiques, offrant une expérience unique du Maroc authentique."
+    },
+    {
+        "id": "11",
+        "region": "Laâyoune-Sakia El Hamra",
+        "description": "Située dans le sud du Maroc, cette région englobe le territoire disputé du Sahara occidental. Laâyoune est la plus grande ville de la région, avec une culture influencée par les communautés sahraouies et une histoire complexe liée aux questions politiques."
+    },
+    {
+        "id": "12",
+        "region": "Dakhla-Oued Ed Dahab",
+        "description": "Dakhla-Oued Ed Dahab est une région côtière unique, avec la ville de Dakhla située sur une presqu'île entre l'océan Atlantique et une lagune. C'est un lieu prisé pour les sports nautiques, offrant des plages préservées et une ambiance sereine."
+    }
+]

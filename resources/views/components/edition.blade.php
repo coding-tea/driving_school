@@ -1,0 +1,1 @@
+@vite(pageJs('components/edition'))

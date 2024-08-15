@@ -9,20 +9,24 @@ return [
     |
     | Here you may specify the default filesystem disk that should be used
     | by the framework. The "local" disk, as well as a variety of cloud
-    | based disks are available to your application for file storage.
+    | based disks are available to your application. Just store away!
     |
     */
 
     'default' => env('FILESYSTEM_DISK', 'local'),
+
+    // Filesystem to use specifically for image uploads.
+    'images' => env('STORAGE_IMAGE_DISQUE', 'local'),
+
 
     /*
     |--------------------------------------------------------------------------
     | Filesystem Disks
     |--------------------------------------------------------------------------
     |
-    | Below you may configure as many filesystem disks as necessary, and you
-    | may even configure multiple disks for the same driver. Examples for
-    | most supported storage drivers are configured here for reference.
+    | Here you may configure as many filesystem "disks" as you wish, and you
+    | may even configure multiple disks of the same driver. Defaults have
+    | been set up for each driver as an example of the required values.
     |
     | Supported Drivers: "local", "ftp", "sftp", "s3"
     |
@@ -36,10 +40,32 @@ return [
             'throw' => false,
         ],
 
+
+        'local_secure_files' => [
+            'driver' => 'local',
+            'root'   => storage_path('app/uploads/files/'),
+            'throw'  => true,
+        ],
+
+
+        'local_secure_images' => [
+            'driver'     => 'local',
+            'root'       => storage_path('app/uploads/images/'),
+            'visibility' => 'public',
+            'throw'      => true,
+        ],
+
+
+        'files' => [
+            'driver' => 'local',
+            'root' => storage_path('files'),
+            'throw' => false,
+        ],
+
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => public_path(),
+//            'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,
         ],
