@@ -12,7 +12,7 @@ class OfficeDto extends DTO
         public readonly UploadedFile|null $image_id,
         public readonly String $name,
         public readonly String $adress,
-        public readonly String $user_id,
+        // public readonly String $user_id,
     ){}
 
     public static function fromRequest(Request $request): self
@@ -21,7 +21,7 @@ class OfficeDto extends DTO
             image_id: $request->validated('image_id'),
             name: $request->validated('name'),
             adress: $request->validated('adress'),
-            user_id: $request->validated('user_id'),
+            // user_id: $request->validated('user_id'),
         );
     }
 
@@ -31,7 +31,7 @@ class OfficeDto extends DTO
             image_id: $office->image_id,
             name: $office->name,
             adress: $office->adress,
-            user_id: $office->user_id,
+            // user_id: $office->user_id,
         );
     }
 }
