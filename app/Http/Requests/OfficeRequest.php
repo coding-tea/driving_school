@@ -18,7 +18,7 @@ class OfficeRequest extends FormRequest
             'name' => 'required|string|max:100',
             'adress' => 'required|string',
             'image_id' => 'nullable|image',
-            'user_id' => 'nullable',
+            // 'user_id' => 'nullable',
         ];
     }
 }
