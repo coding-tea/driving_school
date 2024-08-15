@@ -1,0 +1,34 @@
+[
+    {
+        "establishment_id": 1,
+        "collaborator_id": 1
+    },
+    {
+        "establishment_id": 2,
+        "collaborator_id": 2
+    },
+    {
+        "establishment_id": 1,
+        "collaborator_id": 1
+    },
+    {
+        "establishment_id": 3,
+        "collaborator_id": 3
+    },
+    {
+        "establishment_id": 3,
+        "collaborator_id": 3
+    },
+    {
+        "establishment_id": 2,
+        "collaborator_id": 2
+    },
+    {
+        "establishment_id": 1,
+        "collaborator_id": 1
+    },
+    {
+        "establishment_id": 2,
+        "collaborator_id": 2
+    }
+]

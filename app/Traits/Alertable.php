@@ -6,10 +6,9 @@ trait Alertable
 {
 
     private function format(
-        $text,
-        $title,
-        $alertType
-    ): array {
+        $text, $title, $alertType
+    ): array
+    {
         return [
             'alert' => [
                 'text' => $text,
@@ -20,44 +19,50 @@ trait Alertable
     }
 
 
-    public function question($title = '', $text = ''): array
+    public function question($title = '', $text = '',  $flash = true): array
     {
-        $alert = $this->format($title, $text, "question");
-        session()->flush();
-        session()->put('alert', $alert);
+        $alert = $this->format($title, $text, __FUNCTION__);
+        if ($flash) {
+            session()->flash(key($alert), $alert[key($alert)]);
+        }
         return $alert;
     }
 
-    public function success($title = '', $text = ''): array
+    public function success($title = '', $text = '', $flash = true): array
     {
-        $alert = $this->format($title, $text, "success");
-        session()->flush();
-        session()->put('alert', $alert);
+        $alert = $this->format($title, $text, __FUNCTION__);
+        if ($flash) {
+            session()->flash(key($alert), $alert[key($alert)]);
+        }
         return $alert;
     }
 
-    public function error($title = '', $text = '')
+    public function error($title = '', $text = '' , $flash = true)
     {
-        $alert = $this->format($title, $text, "error");
-        session()->flush();
-        session()->put('alert', $alert);
+        $alert = $this->format($title, $text, __FUNCTION__);
+        if ($flash) {
+            session()->flash(key($alert), $alert[key($alert)]);
+        }
         return $alert;
     }
 
 
-    public function info($title = '', $text = '')
+    public function info($title = '', $text = '' , $flash = true)
     {
-        $alert = $this->format($title, $text, "info");
-        session()->flush();
-        session()->put('alert', $alert);
+        $alert = $this->format($title, $text, __FUNCTION__);
+        if ($flash) {
+            session()->flash(key($alert), $alert[key($alert)]);
+        }
         return $alert;
     }
 
-    public function warning($title = '', $text = '')
+    public function warning($title = '', $text = '' , $flash = true)
     {
-        $alert = $this->format($title, $text, "warning");
-        session()->flush();
-        session()->put('alert', $alert);
+        $alert = $this->format($title, $text, __FUNCTION__);
+        if ($flash) {
+            session()->flash(key($alert), $alert[key($alert)]);
+        }
         return $alert;
     }
+
 }

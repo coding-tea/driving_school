@@ -3,42 +3,61 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Password;
-use Illuminate\View\View;
+use App\Http\Requests\ResetPasswordRequest;
+use App\Jobs\ResetUserPasswordJob;
+use App\Models\UserManagement\User;
+use Illuminate\Cache\RateLimiter;
+use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class PasswordResetLinkController extends Controller
 {
-    /**
-     * Display the password reset link request view.
-     */
-    public function create(): View
-    {
-        return view('auth.forgot-password');
-    }
-
-    /**
-     * Handle an incoming password reset link request.
+    /***
      *
-     * @throws \Illuminate\Validation\ValidationException
+     * @return
      */
-    public function store(Request $request): RedirectResponse
+    public function index()
     {
-        $request->validate([
-            'email' => ['required', 'email'],
-        ]);
-
-        // We will send the password reset link to this user. Once we have attempted
-        // to send the link, we will examine the response then see the message we
-        // need to show to the user. Finally, we'll send out a proper response.
-        $status = Password::sendResetLink(
-            $request->only('email')
-        );
-
-        return $status == Password::RESET_LINK_SENT
-                    ? back()->with('status', __($status))
-                    : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => __($status)]);
+        $this->setPageTitle(trans('auth.reset_password'));
+        return view('pages.auth.forgot-password');
     }
+
+
+    /***
+     *
+     * @return
+     */
+    public function sendPasswordResetLink(ResetPasswordRequest $request, RateLimiter $limiter)
+    {
+        $email = $request->get('email');
+        if ($limiter->tooManyAttempts($this->throttleKey($email), 3)) {
+            $seconds = \Illuminate\Support\Facades\RateLimiter::availableIn($this->throttleKey($email));
+            throw ValidationException::withMessages([
+                'email' => trans('auth.throttle', [
+                    'seconds' => $seconds,
+                    'minutes' => ceil($seconds / 60),
+                ]),
+            ]);
+        }
+        $user = User::query()->where('login', $email)->first();
+        if ($user instanceof User) {
+            $this->dispatchSync(new ResetUserPasswordJob($user));
+            $limiter->clear($this->throttleKey($email));
+        }
+        $limiter->hit($this->throttleKey($email));
+
+        $this->success( trans('auth.reset_password') , trans('auth.reset_password_sent', ['email' => $email]));
+        return back();
+    }
+
+
+    /**
+     * Get the rate limiting throttle key for the request.
+     */
+    public function throttleKey($email): string
+    {
+        return Str::transliterate(Str::lower($email) . '|' . '1221.1221.15');
+    }
+
 }
