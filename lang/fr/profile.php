@@ -23,11 +23,13 @@ return [
     'name_ar' => 'Nom (Arabe)',
     'cin' => "Numéro de la carte identité",
     'address' => 'Adresse',
+    'adress' => 'Adresse',
     'birthday' => 'Date de naissance',
     'birth_city' => 'Ville de naissance',
     'reference' => 'Référence',
     'signin_date' => "Date de inscription",
     'image' => 'Image',
+    'image_id' => 'Image',
     'cinimage' => "Image de la carte identité",
 
     // alerts
