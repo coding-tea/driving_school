@@ -6,13 +6,13 @@
         @slot('title', 'Profile')
         <x-form.form method="post" action="{{ route('profile.store') }}">
 
-            <div class="col-12 col-sm-12 pb-5">
+            <div class="col-12 col-sm-6 pb-5">
                 <x-form.file required name="image" label="{{ trans('profile.image') }}" />
             </div>
 
-            {{-- <div class="col-12 col-sm-6 pb-5">
+            <div class="col-12 col-sm-6 pb-5">
                 <x-form.file required name="cinimage" label="{{ trans('profile.cin') }}" />
-            </div> --}}
+            </div>
 
             <x-form.input required :bootstrap-max-length="true" maxlength="100" col="col-12 col-sm-6 mt-5" name="name"
                 label="{{ trans('profile.name') }}" />

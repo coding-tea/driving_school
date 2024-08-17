@@ -20,15 +20,9 @@ return [
 
     // labels
     'name' => 'Nom',
-    'name_ar' => 'Nom (Arabe)',
-    'cin' => "Numéro de la carte identité",
-    'address' => 'Adresse',
-    'birthday' => 'Date de naissance',
-    'birth_city' => 'Ville de naissance',
-    'reference' => 'Référence',
-    'signin_date' => "Date de inscription",
-    'image' => 'Image',
-    'cinimage' => "Image de la carte identité",
+    'role' => 'Role',
+    'admin' => 'admin',
+    'instructor' => 'instructor',
 
     // alerts
     'created_notification' => 'Profile créé avec succès',

@@ -43,9 +43,9 @@ class ProfileService extends Service
             $this->imageService->save($profile, $dto->image);
         }
 
-        // if (isset($dto->cinimage)) {
-        //     $this->imageService->save($profile, $dto->cinimage, "cinimage");
-        // }
+        if (isset($dto->cinimage)) {
+            $this->imageService->save($profile, $dto->cinimage, "cinimage");
+        }
 
         return $profile;
     }
@@ -91,8 +91,8 @@ class ProfileService extends Service
             $this->imageService->update($profile, $dto->image);
         }
 
-        // if (isset($dto->image)) {
-        //     $this->imageService->update($profile, $dto->cinimage, "cinimage");
-        // }
+        if (isset($dto->image)) {
+            $this->imageService->update($profile, $dto->cinimage, "cinimage");
+        }
     }
 }

@@ -18,7 +18,7 @@ class ProfileDto extends DTO
         public readonly String $reference,
         public readonly String $signin_date,
         public readonly UploadedFile|null $image,
-        // public readonly UploadedFile|null $cinimage,
+        public readonly UploadedFile|null $cinimage,
     ){}
 
     public static function fromRequest(Request $request): self
@@ -33,7 +33,7 @@ class ProfileDto extends DTO
             reference: $request->validated('reference'),
             signin_date: $request->validated('signin_date'),
             image: $request->validated('image'),
-            // cinimage: $request->validated('cinimage'),
+            cinimage: $request->validated('cinimage'),
         );
     }
 
@@ -49,7 +49,7 @@ class ProfileDto extends DTO
             reference: $profile->reference,
             signin_date: $profile->signin_date,
             image: $profile->image,
-            // cinimage: $profile->cinimage,
+            cinimage: $profile->cinimage,
         );
     }
 }

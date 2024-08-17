@@ -55,21 +55,8 @@ class StaffController extends Controller
         $this->setPageBreadCrumb([...$this->BreadCrumb(), new BreadCrumbItem('create')]);
         $this->setPageTitle(trans($this->langue . '.page_index.page_title'));
 
-        $users = User::all();
-
         return view("pages." . $this->folder . ".create", [
             'actions' => EditConsult::actions(),
-            'users' => $users,
-        ]);
-    }
-
-    public function show(Staff $staff)
-    {
-        $this->setPageBreadCrumb([...$this->BreadCrumb(), new BreadCrumbItem(trans($this->langue . '.page_edit.page_title'))]);
-        $this->setPageTitle(trans($this->langue .  '.page_edit.page_title_with_item'));
-
-        return view("pages." . $this->folder . ".edit", [
-            'item' => $staff,
         ]);
     }
 
@@ -79,7 +66,7 @@ class StaffController extends Controller
             $staff
         );
         $this->success(__('app.done'), __($this->langue . '.deleted_notification'));
-        return redirect()->back();
+        return redirect()->route($this->route . '.index');
     }
 
     public function destroyGroup(Request $request)
@@ -96,16 +83,7 @@ class StaffController extends Controller
             Dto::fromRequest($request)
         );
         $this->success(__('app.create'), __($this->langue . '.created_notification'));
-        return redirect()->route($this->route . '.show', $data->id);
+        return redirect()->route($this->route . '.index');
     }
 
-    public function update(ModelRequest $request, Staff $staff)
-    {
-        $this->service->update(
-            $staff,
-            Dto::fromRequest($request)
-        );
-        $this->success(__('app.update'), __($this->langue . '.updated_notification'));
-        return redirect()->route($this->route . '.show', $staff);
-    }
 }
