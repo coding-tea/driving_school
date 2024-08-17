@@ -17,8 +17,11 @@ use App\Http\Requests\ProfileRequest as ModelRequest;
 use App\View\Components\Group\BreadCrumbItem;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
+use App\Models\Office;
+use App\Models\Staff;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -41,14 +44,38 @@ class ProfileController extends Controller
         ];
     }
 
+    public function candidat()
+    {
+        $this->setPageTitle("Dashboard");
+        $this->setPageBreadCrumb([new BreadCrumbItem(trans('app.home'), 'dashboard'),]);
+
+        return view('pages.'. $this->folder .'.index', [
+            'actions' => EditConsult::actions(),
+            'heads' => EditConsult::heads(),
+            'data' => ModelTarget::all(),
+        ]);
+    }
+
     public function index()
     {
         $this->setPageTitle(trans($this->langue . '.page_index.page_title'));
         $this->setPageBreadCrumb($this->BreadCrumb());
-        return view('pages.' . $this->folder . '.index', [
+
+        $item = Office::query()->where('user_id', Auth::id())->first();
+
+        $candidats_count = Profile::query()->where('office_id', $item->id)->get()->count();
+
+        $staffs_count = Staff::query()->where('office_id', $item->id)->get()->count();
+
+        $candidats_count_last_mount = Profile::query()->where('office_id', $item->id)->get()->count();
+
+        return view('pages.office.profile', [
             'actions' => EditConsult::actions(),
             'heads' => EditConsult::heads(),
             'data' => ModelTarget::all(),
+            'item' => $item,
+            'candidats_count' => $candidats_count,
+            'staffs_count' => $staffs_count,
         ]);
     }
 
@@ -111,7 +138,6 @@ class ProfileController extends Controller
     public function donwloaPdf($id)
     {
         $data = Profile::find($id);
-        return view('pages.contract.formation' ,compact('data'));
+        return view('pages.contract.formation', compact('data'));
     }
-    
 }
