@@ -7,13 +7,13 @@
         @bind($item)
         <x-form.form method="post" action="{{ route('profile.update', $item->id) }}">
 
-            <div class="col-12 col-sm-12 pb-5">
+            <div class="col-12 col-sm-6 pb-5">
                 <x-form.file :src="$item?->Image?->path" name="image" label="{{ trans('profile.image') }}" />
             </div>
 
-            {{-- <div class="col-12 col-sm-6 pb-5">
+            <div class="col-12 col-sm-6 pb-5">
                 <x-form.file :src="$item?->cinid?->path" name="cinimage" label="{{ trans('profile.cinimage') }}" />
-            </div>  --}}
+            </div> 
 
             <x-form.input required :bootstrap-max-length="true" maxlength="100" col="col-12 col-sm-6 mt-5" name="name"
                 label="{{ trans('profile.name') }}" />

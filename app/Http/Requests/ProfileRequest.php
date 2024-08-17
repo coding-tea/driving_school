@@ -24,7 +24,7 @@ class ProfileRequest extends FormRequest
             'reference' => 'required|string|max:100',
             'signin_date' => 'required|string',
             'image' => 'nullable|image',
-            // 'cinimage' => 'nullable|image',
+            'cinimage' => 'nullable|image',
         ];
     }
 }

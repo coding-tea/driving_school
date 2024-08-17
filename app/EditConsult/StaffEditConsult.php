@@ -21,8 +21,8 @@ class StaffEditConsult extends Consultation implements ConsultationInterface
     public static function heads(): array
     {
         return [
-            new Head('name', Head::TYPE_TEXT, trans('payments.name')),
-            new Head('role', Head::TYPE_TEXT, trans('payments.role')),
+            new Head('name', Head::TYPE_TEXT, trans('staffs.name')),
+            new Head('role', Head::TYPE_TEXT, trans('staffs.role')),
         ];
     }
 

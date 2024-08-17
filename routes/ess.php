@@ -52,7 +52,6 @@ Route::middleware('auth')->group(function () {
             Route::post('store', 'store')->name('store');
             Route::post('delete', 'destroyGroup')->name('destroyGroup');
             Route::get('{staff}/delete', 'destroy')->name('destroy');
-            Route::get('{staff}/show', 'show')->name('show');
             Route::post('{staff}/update/', 'update')->name('update');
         }
     );
@@ -66,7 +65,6 @@ Route::middleware('auth')->group(function () {
             Route::post('store', 'store')->name('store');
             Route::post('delete', 'destroyGroup')->name('destroyGroup');
             Route::get('{payment}/delete', 'destroy')->name('destroy');
-            Route::get('{payment}/show', 'show')->name('show');
             Route::post('{payment}/update/', 'update')->name('update');
         }
     );
@@ -80,7 +78,6 @@ Route::middleware('auth')->group(function () {
             Route::post('store', 'store')->name('store');
             Route::post('delete', 'destroyGroup')->name('destroyGroup');
             Route::get('{car}/delete', 'destroy')->name('destroy');
-            Route::get('{car}/show', 'show')->name('show');
             Route::post('{car}/update/', 'update')->name('update');
         }
     );

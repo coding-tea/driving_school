@@ -4,9 +4,7 @@ namespace App\Services;
 
 use App\DTO\OfficeDto as Dto;
 use App\Models\Office;
-use App\Models\UserManagement\User;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Hash;
 
 class OfficeService extends Service
 {
@@ -25,15 +23,10 @@ class OfficeService extends Service
 
     public function create(Dto $dto)
     {
-        $user = User::query()->create([
-            'login' => $dto->name,
-            'password' => Hash::make($dto->name),
-        ]);
-
         $data = $this->query()->create([
             'name' => $dto->name,
             'adress' => $dto->adress,
-            'user_id' => $user->id,
+            'user_id' => $dto->user_id,
         ]);
 
         if (isset($dto->image_id)) {
