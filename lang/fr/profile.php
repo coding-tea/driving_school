@@ -29,6 +29,8 @@ return [
     'signin_date' => "Date de inscription",
     'image' => 'Image',
     'cinimage' => "Image de la carte identité",
+    'pdf' => "start certificat",
+    'permi' => "end certificat",
 
     // alerts
     'created_notification' => 'Profile créé avec succès',

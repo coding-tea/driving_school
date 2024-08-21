@@ -11,7 +11,7 @@ Route::middleware('auth')->group(function () {
         ->prefix('profile')
         ->controller(Controllers\ProfileController::class)
         ->group(function () {
-            Route::get('', 'index')->name('index');
+            Route::get('', 'candidat')->name('index');
             Route::get('create', 'create')->name('create');
             Route::post('store', 'store')->name('store');
             Route::post('delete', 'destroyGroup')->name('destroyGroup');
@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
         ->controller(Controllers\ProfileController::class)
         ->group(function () {
             Route::get('/formation/{id}', 'donwloaPdf')->name('pdf');
+            Route::get('/permi/{id}', 'donwloaPermi')->name('permi');
         }
     );
 

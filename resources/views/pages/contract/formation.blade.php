@@ -138,12 +138,11 @@
 <body>
 
     <div style="text-align: center">
-        {{-- <button class="btn btn-print" style="text-decoration: none;color: #000;font-style: italic;"
-            onclick="printCV()">print</button> --}}
         <button class="btn btn-download"
             style="text-decoration: none;color: #fff;background-color: #2C445D; font-style: italic; padding: 8px 20px; border-radius: 10px;font-weight: bold;  letter-spacing: 1px; font-size: 20px; cursor: pointer;"
             onclick="downloadPDF()">download</button>
     </div>
+
 
     <div id="app">
 
@@ -277,13 +276,13 @@
 
         <div id="page2">
             <div class="page2">
-                <h3 style="text-decoration: underline;color: #2C445D; font-weight: bold;"> المادة 2 : مدة العقد:</h3>
+                <h3 style="text-decoration: underline;color: #2C445D; font-weight: bold;"> المادة 2 : مدة العقد</h3>
 
                 <p> يمتد هذا العقد لمدة سنة أشهر ابتداء من تاريخ توقيعه، ويمكن تمديده، في حالة الاتفاق بين الطرفين، لمدة
                     لا
                     تتعدى ثلاثة أشهر. </p>
 
-                <h3 style="text-decoration: underline;color: #2C445D; font-weight: bold;">المادة 3 : التزامات المؤسسة:
+                <h3 style="text-decoration: underline;color: #2C445D; font-weight: bold;">المادة 3 : التزامات المؤسسة
                 </h3>
 
                 <p>
@@ -352,23 +351,26 @@
 
             <div class="signature">
                 <strong>
-                <div style="text-align: center;">
-                    عقد محرر في ثلاثة نظائر أصلية.
-                    في عين الشكاك بتاريخ {{ $data->signin_date }}
-                </div>
-            </strong>
+                    <div style="text-align: center;">
+                        عقد محرر في ثلاثة نظائر أصلية.
+                        في عين الشكاك بتاريخ {{ $data->signin_date }}
+                    </div>
+                </strong>
             </div>
 
-            <div id="signature" style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
+            <div id="signature"
+                style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
                 <div class="candidat"style="height: 150px; width: 50%;">
                     <div style="color: #2C445D; font-weight: bold;">
                         توقيع المرشح أو ولي أمره مصادق عليه
                     </div>
                     <p>
-                        يشهد بصحة الامضاءالدي وضعه
+                        يشهد بصحة الامضاء الدي وضعه
                         <br>
-                        {{ $data->name }}
-                        السيد 
+                        السيد
+                        <strong>
+                        {{ $data->name_ar }}
+                        </strong>
                         <br>
                         بعد اثبات هويته من طرفنا تحث عدد
                         <br>
@@ -386,7 +388,6 @@
         </div>
 
     </div>
-
 
 
     <script>
@@ -424,7 +425,7 @@
                     if (heightLeft > 0) docPDF.addPage();
                 }
 
-                const pdfname = document.querySelector('#name').innerHTML + ".pdf";
+                const pdfname = document.querySelector('#name').innerHTML+ " start" + ".pdf";
                 // Save PDF
                 docPDF.save(pdfname);
             });

@@ -55,7 +55,12 @@
 
                         <div class="menu-item px-3">
                             <a target="_blank" href="{{ route('contract.pdf', $item) }}"
-                                class="menu-link px-3">{{ trans('profile.pdf') }} 1</a>
+                                class="menu-link px-3">{{ trans('profile.pdf') }}</a>
+                        </div>
+
+                        <div class="menu-item px-3">
+                            <a target="_blank" href="{{ route('contract.permi', $item) }}"
+                                class="menu-link px-3">{{ trans('profile.permi') }}</a>
                         </div>
 
                         <div class="menu-item px-3">
