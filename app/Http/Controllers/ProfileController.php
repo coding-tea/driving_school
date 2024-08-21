@@ -140,4 +140,11 @@ class ProfileController extends Controller
         $data = Profile::find($id);
         return view('pages.contract.formation', compact('data'));
     }
+
+    public function donwloaPermi($id)
+    {
+        $data = Profile::find($id);
+        return view('pages.contract.license', compact('data'));
+    }
+
 }

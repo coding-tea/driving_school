@@ -26,6 +26,7 @@ Route::middleware('auth')->group(function () {
         ->controller(Controllers\ProfileController::class)
         ->group(function () {
             Route::get('/formation/{id}', 'donwloaPdf')->name('pdf');
+            Route::get('/permi/{id}', 'donwloaPermi')->name('permi');
         }
     );
 
